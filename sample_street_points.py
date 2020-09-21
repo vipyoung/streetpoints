@@ -55,8 +55,13 @@ for i, street in enumerate(o['features']):
     # stetch segments of the same street.
     segs = []
     dps = []
-    for segment in street['geometry']['coordinates']:
-        segs += [(_[1], _[0]) for _ in segment]
+    if street['geometry']['type'] == "LineString":
+        segs = street['geometry']['coordinates']
+    elif street['geometry']['type'] == "MultiLineString":
+        for segment in street['geometry']['coordinates']:
+            segs += [(_[1], _[0]) for _ in segment]
+    else:
+        continue
     for e in zip(segs, segs[1:]):
         x = densify(e, densification_rate=1)
         dps += x
