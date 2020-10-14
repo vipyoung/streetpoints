@@ -1,6 +1,6 @@
 # streetpoints
 
-This code sampling points from a given street maps based on a preferred distance.
+This code samples points from a given street maps based on a preferred distance.
 Let's say you have the street map of Sydney (extracted from openstreetmap) and you'd like to sample points on the streets every 50 meters.
 
 # How to run
